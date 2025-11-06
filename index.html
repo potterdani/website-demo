@@ -55,6 +55,16 @@
         .dark-section h2, .dark-section h3 {
             color: var(--color-text-light);
         }
+
+        /* === ÚJ: Eltünteti a GYIK alapértelmezett nyílát a szöveg elől === */
+        details summary {
+            /* Alapértelmezett jelölő eltávolítása */
+            list-style: none; 
+        }
+        details summary::-webkit-details-marker {
+            /* Webkit böngészők (Chrome/Safari) jelölőjének eltávolítása */
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -153,7 +163,7 @@
                             <span class="font-[var(--font-body)]">**Komplexitást** ad a már így is túlterhelt naphoz.</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg class="w-6 h-6 mr-3 text-red-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Csak **rövid távú** "tűzoltás".</span>
                         </li>
                     </ul>
@@ -291,7 +301,7 @@
                 <details class="border-b border-gray-200 py-4 cursor-pointer group">
                     <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
                         "Mi van, ha nem működik?"
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </summary>
                     <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
                         Ez nem egy dobozos program. A Habityield arról szól, hogy megtaláljuk, ami a TE életedben hosszú távon működik. A folyamatos támogatás és finomhangolás biztosítja, hogy a rendszer ellenálljon az élet változásainak.
