@@ -99,7 +99,8 @@
     <header class="w-full py-4 px-4 md:px-8 fixed top-0 z-10 bg-[var(--color-bg-light)] bg-opacity-95 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <span class="text-xl font-bold font-[var(--font-heading)] tracking-wider text-[var(--color-accent)]">Habityield.</span>
-            <a href="#cta-final" class="hidden sm:block text-sm font-semibold hover:text-[var(--color-accent)] transition duration-200">Stratégiai Hívás</a>
+            <!-- JAVÍTÁS: A navigációs link most már egy új lapon nyitja meg a CTA-t -->
+            <a href="https://habityield.hu/strategiai-hivas" target="_blank" class="hidden sm:block text-sm font-semibold hover:text-[var(--color-accent)] transition duration-200">Stratégiai Hívás</a>
         </div>
     </header>
 
@@ -111,9 +112,11 @@
             <div class="grid md:grid-cols-12 gap-12 items-center mb-10">
                 
                 <!-- BAL OLDAL (Szöveg, H1/H2) -->
-                <div class="md:col-span-7 text-center md:text-left">
+                <!-- JAVÍTÁS: Hozzáadva a w-full, hogy ne lógjon ki a mobil nézetben -->
+                <div class="md:col-span-7 text-center md:text-left w-full"> 
                     <!-- H1: Modern Sans-Serif, balra igazítva -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl mb-6 font-[var(--font-heading)] font-bold tracking-tight">
+                    <!-- JAVÍTÁS: text-4xl csökkentve text-3xl-re a legkisebb képernyőkön -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-7xl mb-6 font-[var(--font-heading)] font-bold tracking-tight">
                         A rendszer, ami a háttérből támogat és elvezet a fenntartható csúcsteljesítményhez.
                     </h1>
                     <!-- H2: Kicsit visszafogottabb, balra igazítva -->
@@ -123,7 +126,8 @@
                 </div>
 
                 <!-- JOBB OLDAL (Vélemény Kártyák - Social Proof) -->
-                <div class="md:col-span-5 w-full mt-8 md:mt-0">
+                <!-- JAVÍTÁS: Hozzáadva a max-w-full, hogy ne lógjon ki a mobil nézetben -->
+                <div class="md:col-span-5 w-full mt-8 md:mt-0 max-w-full">
                     <p class="text-lg text-gray-700 font-semibold mb-3 text-center md:text-right">Akik már használják:</p>
                     <!-- Vélemény Kártyák, egymás alá rendezve (max-width miatt) -->
                     <div class="space-y-4 max-w-sm mx-auto md:max-w-full">
@@ -158,8 +162,8 @@
                 <p class="mb-6 text-xl text-gray-700 max-w-3xl mx-auto">
                     Készen állsz arra, hogy a belső rendszereidet a legmagasabb szintre optimalizáld?
                 </p>
-                <!-- CTA Gomb 1 (Frissített, Ikonnal és új animációval) -->
-                <a href="#" class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
+                <!-- CTA Gomb 1 - JAVÍTÁS: Külső link (target="_blank") hozzáadva -->
+                <a href="https://habityield.hu/strategiai-hivas" target="_blank" class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
                     <!-- Inline SVG Icon (Calendar/Booking) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <span>Kérem a Személyes Stratégiámat!</span>
@@ -305,7 +309,8 @@
     <section class="py-20 sm:py-32 px-4 md:px-8 bg-[var(--color-bg-light)]">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <!-- Bal Oszlop: Kép Helykitöltő -->
-            <div class="h-96 w-full rounded-xl overflow-hidden bg-gray-300 flex items-center justify-center shadow-lg">
+            <!-- JAVÍTÁS: Hozzáadva a max-w-full, hogy ne lógjon ki a mobil nézetben -->
+            <div class="h-96 w-full max-w-full rounded-xl overflow-hidden bg-gray-300 flex items-center justify-center shadow-lg">
                 <!-- Kép Helykitöltő, hangsúlyozva a "stratéga" hangulatot -->
                 <span class="text-xl text-gray-600 font-[var(--font-heading)]">Alapító Fotó Helye (Stratégikus, Empatikus)</span>
             </div>
@@ -347,8 +352,8 @@
                 </li>
             </ul>
 
-            <!-- CTA Gomb 2 (Frissített, Ikonnal és új animációval) -->
-            <a href="#" class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
+            <!-- CTA Gomb 2 - JAVÍTÁS: Külső link (target="_blank") hozzáadva -->
+            <a href="https://habityield.hu/strategiai-hivas" target="_blank" class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
                 <!-- Inline SVG Icon (Calendar/Booking) -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>Kérem a Személyes Stratégiámat!</span>
