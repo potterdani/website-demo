@@ -37,7 +37,7 @@
             font-weight: 700;
         }
         
-        /* ÚJ: A Carrd stílusú, mozgó gradient animáció kulcskockái */
+        /* A Carrd stílusú, mozgó gradient animáció kulcskockái */
         @keyframes moving-gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -92,11 +92,6 @@
             display: none;
         }
 
-        /* ÚJ: Stílus a Jotform-ot beágyazó iframe-hez, hogy biztosítsuk az átlátszóságot */
-        /* Megpróbáljuk beállítani a stílust a script által generált iframe-en */
-        #jotform-embed-wrapper iframe {
-            background-color: transparent !important;
-        }
     </style>
 </head>
 <body class="antialiased">
@@ -128,15 +123,16 @@
                 </div>
 
                 <!-- JOBB OLDAL (JotForm Beágyazás) -->
-                <!-- Eltávolítottam a fehér hátteret és shadow-t, hogy beleolvadjon a szekcióba -->
-                <div class="md:col-span-6 w-full mt-8 md:mt-0 max-w-full p-0"> 
+                <!-- Visszaállítottam a fehér hátterű kártya stílusát, és hozzáadtam az ID-t a tartalomhoz -->
+                <div class="md:col-span-6 w-full mt-8 md:mt-0 max-w-full"> 
                     <!-- Form Cím (a Habityield font és szín stílusában) -->
                     <h3 class="text-2xl font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4 text-center">Jelentkezés a Stratégiai Hívásra</h3>
 
                     <!-- JotForm Helye -->
-                    <div id="jotform-embed-wrapper" class="p-4 rounded-xl border border-gray-200 shadow-md bg-white">
-                        <!-- Az űrlap kódja beillesztve ide. A Jotform alapértelmezetten fehér hátterű iframe-et generál. -->
-                        <script type="text/javascript" id="jotform-embed" src="https://form.jotform.com/jsform/253114271999060"></script>
+                    <!-- Visszaállítottam a fehér háttérstílusokat: p-4 bg-white rounded-xl shadow-2xl border border-gray-200 -->
+                    <div id="jotform-embed-wrapper" class="p-4 bg-white rounded-xl shadow-2xl border border-gray-200">
+                        <!-- A felhasználó által megadott, frissített űrlap kódja beillesztve -->
+                        <script type="text/javascript" src="https://form.jotform.com/jsform/253114271999060"></script>
                     </div>
                 </div>
             </div>
@@ -261,7 +257,7 @@
                             <span class="font-[var(--font-body)]">Jelentősen **csökkenti a Kognitív Terhelést**.</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">**Hosszú távú, fenntartható** teljesítményt garantál.</span>
                         </li>
                     </ul>
@@ -411,28 +407,5 @@
         </div>
     </footer>
 
-    <!-- A Jotform által generált iframe átlátszóvá tételére szolgáló kód -->
-    <script>
-        window.onload = function() {
-            setTimeout(function() {
-                // A Jotform űrlap valószínűleg egy iframe-ben töltődik be, a cél, hogy megtaláljuk és átlátszóvá tegyük.
-                const formWrapper = document.getElementById('jotform-embed-wrapper');
-                if (formWrapper) {
-                    const iframe = formWrapper.querySelector('iframe');
-                    if (iframe) {
-                        // Állítsuk be az iframe átlátszóságát, ha lehetséges.
-                        // Megpróbáljuk beállítani a 'frameborder' és 'allowtransparency' attribútumokat, bár a modern böngészőkben ezek kevésbé relevánsak.
-                        iframe.style.backgroundColor = 'transparent';
-                        iframe.setAttribute('allowtransparency', 'true');
-                        iframe.setAttribute('frameborder', '0');
-                        
-                        // Néha a Jotform magában az iframe-ben is stílusozza a hátteret, ezen kívülről nehéz változtatni.
-                        // A CSS fenti beállítása (CSS Selectorral) és ez a JS kísérlet a maximális esélyt adja a sikerre.
-                        console.log('JotForm iframe stílusok beállítva az átlátszóság érdekében.');
-                    }
-                }
-            }, 500); // Késleltetés, hogy a JotForm script befejezhesse az iframe létrehozását
-        };
-    </script>
 </body>
 </html>
