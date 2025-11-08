@@ -16,7 +16,7 @@
             --color-bg-dark: #1A1A1A;
             --color-text-dark: #1A1A1A;
             --color-text-light: #F5F5F5;
-            --color-accent: #5D6A5E;
+            --color-accent: #5D6A5E; /* Földes, növényi zöld/szürke árnyalat */
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Lora', serif;
         }
@@ -38,7 +38,8 @@
         
         /* Gradient Szöveg Stílus a Habityield kiemeléséhez */
         .gradient-text {
-            background-image: linear-gradient(to right, #C6BBD1, #CBCBD7, #D5BDCB);
+            /* Pasztell lila-szürke-rózsaszín átmenet, elegáns, de mégis finom */
+            background-image: linear-gradient(to right, #C6BBD1, #CBCBD7, #D5BDCB); 
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -79,16 +80,17 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigáció (Mivel most a form be van ágyazva, a header CTA-t kivettem) -->
-    <header class="w-full py-4 px-4 md:px-8 fixed top-0 z-10 bg-gray-200/50 backdrop-blur-md">
+    <!-- Navigáció (Rögzített, diszkrét) -->
+    <header class="w-full py-4 px-4 md:px-8 sticky top-0 z-10 bg-gray-200/50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logó/Márkanév -->
             <span class="text-xl font-bold font-[var(--font-heading)] tracking-wider text-[var(--color-accent)]">Habityield.</span>
-            <!-- Most nincs szükség CTA linkre a headerben -->
+            <!-- A navigációs menü kihagyva a landing page fókuszának megőrzése érdekében -->
         </div>
     </header>
 
     <!-- 1. Hős Szekció (Hero Section) -->
-    <section class="min-h-[70vh] flex items-center justify-center pt-20 pb-16 px-4 md:px-8 bg-[var(--color-bg-light)]">
+    <section class="min-h-[70vh] flex items-center justify-center pt-32 pb-16 px-4 md:px-8 bg-[var(--color-bg-light)]">
         <div class="max-w-6xl mx-auto w-full"> 
             
             <!-- Fő Konténer: 2 oszlopra osztva (Text + Reviews) -->
@@ -99,7 +101,7 @@
                     <h1 class="text-3xl sm:text-4xl lg:text-7xl mb-6 font-[var(--font-heading)] font-bold tracking-tight">
                         A rendszer, ami a háttérből támogat és elvezet a fenntartható csúcsteljesítményhez.
                     </h1>
-                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-[var(--font-body)] font-normal">
+                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-[var(--font-body)] font-normal text-gray-700">
                         Szabadíts fel mentális energiát arra, ami igazán számít. Hogy ne csak túléld, hanem valóban megéld a mindennapokat.
                     </h2>
                 </div>
@@ -110,25 +112,25 @@
                     <div class="space-y-4 max-w-sm mx-auto md:max-w-full">
                         
                         <!-- VÉLEMÉNY 1 -->
-                        <div class="p-2">
+                        <div class="p-2 bg-white rounded-lg shadow-md">
                             <img src="https://i.imgur.com/3wkMY5Z.png" 
-                                 alt="Google vélemény 1: 'Peti'" 
-                                 class="w-full h-auto rounded-lg"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x100/EEEEEE/333333?text=Review+1'">
+                                alt="Google vélemény 1: 'Peti'" 
+                                class="w-full h-auto rounded-lg"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x100/EEEEEE/333333?text=Review+1'">
                         </div>
                         
                         <!-- VÉLEMÉNY 2 -->
-                        <div class="p-2">
+                        <div class="p-2 bg-white rounded-lg shadow-md">
                             <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+2" 
-                                 alt="Google vélemény 2: 'Anna'" 
-                                 class="w-full h-auto rounded-lg">
+                                alt="Google vélemény 2: 'Anna'" 
+                                class="w-full h-auto rounded-lg">
                         </div>
                         
                         <!-- VÉLEMÉNY 3 -->
-                        <div class="p-2">
+                        <div class="p-2 bg-white rounded-lg shadow-md">
                             <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+3" 
-                                 alt="Google vélemény 3: 'Gábor'" 
-                                 class="w-full h-auto rounded-lg">
+                                alt="Google vélemény 3: 'Gábor'" 
+                                class="w-full h-auto rounded-lg">
                         </div>
                     </div>
                 </div>
@@ -137,16 +139,16 @@
         </div>
     </section>
     
-    <!-- 2. BEÁGYAZOTT TYPEFORM SZEKCIÓ -->
-    <section class="py-16 px-4 md:px-8 bg-gray-100">
+    <!-- 2. BEÁGYAZOTT TYPEFORM SZEKCIÓ (Fő CTA) -->
+    <section class="py-16 px-4 md:px-8 bg-gray-100 border-t border-gray-200">
         <div class="max-w-6xl mx-auto text-center mb-10">
-            <h2 class="text-3xl sm:text-4xl mb-3 font-[var(--font-heading)]">Foglalj Stratégiai Hívást</h2>
+            <h2 class="text-3xl sm:text-4xl mb-3 font-[var(--font-heading)] text-[var(--color-accent)]">Foglalj Stratégiai Hívást</h2>
             <p class="text-xl text-gray-700 font-[var(--font-body)]">Töltsd ki az alábbi rövid kérdőívet, hogy felkészülten érkezhessünk a 45 perces, ingyenes beszélgetésre.</p>
         </div>
         
         <!-- Typeform Beágyazás -->
         <div class="typeform-container">
-            <!-- EZ A TIÉD Typeform Beágyazott Kódja -->
+            <!-- Ez a Typeform Beágyazott Kódja (data-tf-live attribútum) -->
             <div data-tf-live="01K9HXEPX873JT5145YTQP43XD"></div>
             <!-- A Typeform automatikusan kitölti a div tartalmát az embed.js futásakor -->
         </div>
@@ -210,15 +212,18 @@
                     <h3 class="text-2xl font-bold mb-6 text-gray-600 font-[var(--font-heading)]">A Régi Út</h3>
                     <ul class="space-y-4 text-lg list-none p-0">
                         <li class="flex items-start">
+                            <!-- X Icon -->
                             <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Teljesen az **Akaraterőre** támaszkodik.</span>
                         </li>
                         <li class="flex items-start">
+                            <!-- X Icon -->
                             <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">**Komplexitást** ad a már így is túlterhelt naphoz.</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <!-- X Icon -->
+                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Csak **rövid távú** "tűzoltás".</span>
                         </li>
                     </ul>
@@ -230,14 +235,17 @@
                     <h3 class="text-2xl font-bold mb-6 gradient-text font-[var(--font-heading)]">A Habityield Út</h3>
                     <ul class="space-y-4 text-lg list-none p-0">
                         <li class="flex items-start">
+                            <!-- Check Icon -->
                             <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Intelligens **Rendszert Épít**.</span>
                         </li>
                         <li class="flex items-start">
+                            <!-- Check Icon -->
                             <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Jelentősen **csökkenti a Kognitív Terhelést**.</span>
                         </li>
                         <li class="flex items-start">
+                            <!-- Check Icon -->
                             <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">**Hosszú távú, fenntartható** teljesítményt garantál.</span>
                         </li>
@@ -254,7 +262,7 @@
             
             <div class="grid md:grid-cols-3 gap-10 text-left">
                 <!-- 1. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
                     <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">01</span>
                     <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Stratégiai Beszélgetés</h3>
                     <p class="text-base text-gray-700 font-[var(--font-body)]">
@@ -263,7 +271,7 @@
                 </div>
                 
                 <!-- 2. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
                     <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">02</span>
                     <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Személyes Rendszer Felépítése</h3>
                     <p class="text-base text-gray-700 font-[var(--font-body)]">
@@ -272,7 +280,7 @@
                 </div>
 
                 <!-- 3. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
                     <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">03</span>
                     <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Folyamatos Támogatás</h3>
                     <p class="text-base text-gray-700 font-[var(--font-body)]">
@@ -289,7 +297,7 @@
             <!-- Bal Oszlop: Kép Helykitöltő -->
             <div class="h-96 w-full max-w-full rounded-xl overflow-hidden bg-gray-300 flex items-center justify-center shadow-lg">
                 <!-- Kép Helykitöltő -->
-                <span class="text-xl text-gray-600 font-[var(--font-heading)]">Alapító Fotó Helye (Stratégikus, Empatikus)</span>
+                <span class="text-xl text-gray-600 font-[var(--font-heading)] text-center p-4">Alapító Fotó Helye (Stratégikus, Empatikus)</span>
             </div>
 
             <!-- Jobb Oszlop: Szöveg -->
@@ -312,9 +320,10 @@
             
             <div class="space-y-6">
                 <!-- Kérdés 1 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                <details class="border-b border-gray-200 py-4 cursor-pointer group bg-white p-4 rounded-lg shadow-sm">
                     <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
                         "Nincs erre időm."
+                        <!-- Nyíl ikon -->
                         <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </summary>
                     <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
@@ -323,9 +332,10 @@
                 </details>
 
                 <!-- Kérdés 2 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                <details class="border-b border-gray-200 py-4 cursor-pointer group bg-white p-4 rounded-lg shadow-sm">
                     <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
                         "Mi van, ha nem működik?"
+                        <!-- Nyíl ikon -->
                         <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </summary>
                     <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
@@ -334,10 +344,11 @@
                 </details>
 
                 <!-- Kérdés 3 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                <details class="border-b border-gray-200 py-4 cursor-pointer group bg-white p-4 rounded-lg shadow-sm">
                     <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
                         "Miben más ez, mint egy online edzésterv?"
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <!-- Nyíl ikon -->
+                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </summary>
                     <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
                         Ez a szolgáltatás a gondolkodásmódról, a fókuszról, a döntéshozatalról és a regenerációról szól, nem pedig a súlyok emeléséről. Mi az alapvető rendszert építjük fel, ami lehetővé teszi, hogy *minden más* (beleértve az edzést) a helyére kerüljön. Ez a stratégiai szintű optimalizáció.
@@ -348,7 +359,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 px-4 md:px-8 bg-gray-100">
+    <footer class="py-10 px-4 md:px-8 bg-gray-200">
         <div class="max-w-7xl mx-auto text-center text-sm text-gray-600">
             <p>&copy; 2024 Habityield. Minden jog fenntartva.</p>
             <p class="mt-2 text-xs">Jogi nyilatkozat | Adatkezelési tájékoztató</p>
