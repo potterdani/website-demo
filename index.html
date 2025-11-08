@@ -3,434 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habityield - Landing Page Wireframe</title>
+    <title>Szolgáltatások - Foglaljon Időpontot</title>
     <!-- Tailwind CSS betöltése -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts betöltése: Montserrat (Fejlécek) és Lora (Szövegtörzs) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Calendly link widget CSS és JS betöltése a popup megjelenítéséhez -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    
     <style>
-        /* Egyedi CSS a wireframe-hez, a megadott tipográfia és színek beállításához */
-        :root {
-            --color-bg-light: #F5F5F5; /* Világosszürke a szekció háttérnek */
-            --color-bg-dark: #1A1A1A;
-            --color-text-dark: #1A1A1A;
-            --color-text-light: #F5F5F5;
-            --color-accent: #5D6A5E; /* Korábbi márkaszín */
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Lora', serif;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--color-text-dark);
-            background-color: var(--color-bg-light); 
-            line-height: 1.7; 
-            overflow-x: hidden; 
-        }
-
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            color: var(--color-text-dark);
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        
-        /* A Carrd stílusú, mozgó gradient animáció kulcskockái */
-        @keyframes moving-gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* CTA gomb egyedi stílusa az animált gradienttel */
+        /* Egyedi stílusok a Calendly CTA gombhoz */
         .cta-button {
-            /* Az alap gradient, ami most a Calendly elsődleges színére hajaz */
-            background: linear-gradient(135deg, #d8c0d1, #F0DBE8, #d8c0d1, #E8D0E0);
-            background-size: 300% 300%; 
-            
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
-            
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
-            
-            animation: moving-gradient 4s ease infinite; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
-
         .cta-button:hover {
-            opacity: 1; 
-            transform: translateY(-2px); 
-            box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.3), 0 6px 8px -2px rgba(0, 0, 0, 0.1); 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
-
-        /* Gradient Szöveg Stílus a Habityield kiemeléséhez */
-        .gradient-text {
-            /* A Calendly primary_color-ra alapozva állítottam be */
-            background-image: linear-gradient(to right, #d8c0d1, #C0A8C9, #D5BDCB);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Sötét szekciók beállítása */
-        .dark-section {
-            background-color: var(--color-bg-dark);
-            color: var(--color-text-light);
-        }
-        .dark-section h2, .dark-section h3 {
-            color: var(--color-text-light);
-        }
-
-        /* GYIK alapértelmezett nyíl eltávolítása */
-        details summary {
-            list-style: none; 
-        }
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#1e293b', /* Slate 800 */
+                        'primary-light': '#a3839f', /* Calendly primary color for text/accents */
+                        'accent-bg': '#e0e0e0', /* Calendly background color for contrast */
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Calendly link widget CSS betöltése. Ez a betöltés a HEAD-ben biztosítja a leggyorsabb rendelkezésre állást. -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    
+    <!-- Calendly link widget JavaScript betöltése. Az 'async' kulcsszó nem blokkolja az oldal megjelenítését. -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
-<body class="antialiased">
+<body class="bg-gray-50 font-sans text-primary-dark min-h-screen flex flex-col">
 
-    <!-- Navigáció (Minimális, a márkához illeszkedő) -->
-    <header class="w-full py-4 px-4 md:px-8 fixed top-0 z-10 bg-gray-200/50 backdrop-blur-md">
+    <!-- Felső Menü (Placeholder) -->
+    <header class="w-full bg-white shadow-md p-4 sticky top-0 z-10">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <span class="text-xl font-bold font-[var(--font-heading)] tracking-wider text-[var(--color-accent)]">Habityield.</span>
-            <!-- A navigációs link is Calendly popup-ot triggerel -->
-            <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=dbdbdb&text_color=2c2c2c&primary_color=d8c0d1'});return false;" class="hidden sm:block text-sm font-semibold hover:text-[var(--color-accent)] transition duration-200">Stratégiai Hívás</a>
+            <h1 class="text-2xl font-bold text-gray-800">Cég neve</h1>
+            <nav class="hidden md:flex space-x-6 text-gray-600">
+                <a href="#" class="hover:text-primary-light">Szolgáltatások</a>
+                <a href="#" class="hover:text-primary-light">Referenciák</a>
+                <a href="#" class="hover:text-primary-light">Kapcsolat</a>
+            </nav>
         </div>
     </header>
 
-    <!-- 1. Hős Szekció (Hero Section) - Text + Vizuális elem + Reviews -->
-    <section class="flex items-center justify-center pt-24 pb-16 px-4 md:px-8 bg-[var(--color-bg-light)]">
-        <div class="max-w-6xl mx-auto w-full"> 
-            
-            <!-- FŐ KONTÉNER: 2 oszlopra osztva (Szöveg 50%, Vizuális elem 50%) -->
-            <div class="grid md:grid-cols-12 gap-12 items-start mb-16">
-                
-                <!-- BAL OLDAL (Szöveg, H1/H2) -->
-                <div class="md:col-span-6 text-center md:text-left w-full space-y-4"> 
-                    <h1 class="text-3xl sm:text-4xl lg:text-7xl mb-4 font-[var(--font-heading)] font-bold tracking-tight">
-                        A rendszer, ami a háttérből támogat és elvezet a fenntartható csúcsteljesítményhez.
-                    </h1>
-                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-[var(--font-body)] font-normal">
-                        Szabadíts fel mentális energiát arra, ami igazán számít. Hogy ne csak túléld, hanem valóban megéld a mindennapokat.
-                    </h2>
-                    <p class="mt-6 text-lg text-gray-700">Kezdd el utazásod ma!</p>
-
-                    <!-- CTA Gombok -->
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <!-- CTA 1: ANIMÁLT GOMB - CALENDLY POPUP-ot triggerel -->
-                        <a href="#" 
-                           onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=dbdbdb&text_color=2c2c2c&primary_color=d8c0d1'});return false;"
-                           class="cta-button inline-block py-3 px-8 rounded-lg text-[var(--color-text-dark)] font-extrabold text-lg tracking-wider shadow-2xl flex items-center justify-center space-x-2 mx-auto sm:mx-0">
-                            Stratégiai Hívás
-                        </a>
-                        <!-- CTA 2: Másodlagos gomb -->
-                        <button class="bg-white text-[var(--color-accent)] border border-[var(--color-accent)] font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 focus:outline-none focus:ring-4 focus:ring-[var(--color-accent)] focus:ring-opacity-50">
-                            Bővebben a módszerről
-                        </button>
-                    </div>
-
-                    <p class="text-sm text-gray-500 pt-4 text-center sm:text-left">
-                        *Nincs kötelezettség, csak akcióra kész stratégia.
-                    </p>
-                </div>
-
-                <!-- JOBB OLDAL (Vizuális Helyőrző) -->
-                <div class="md:col-span-6 w-full mt-8 md:mt-0 max-w-full"> 
-                    
-                    <div class="h-96 w-full rounded-xl border-4 border-gray-300 bg-white flex items-center justify-center shadow-2xl relative overflow-hidden">
-                        <!-- Szimulált app képernyő a Habityield rendszer vázlatával -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-white to-gray-50/70 p-6 flex flex-col justify-center items-center space-y-4">
-                            <h3 class="text-xl font-bold text-[var(--color-accent)] font-[var(--font-heading)]">A Rendszer Vizuális Vázlata</h3>
-                            <div class="text-gray-600 text-sm space-y-2 text-left w-full max-w-xs">
-                                <div class="flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-pink-300"></span><p>Fókusz Zóna (Reggel)</p></div>
-                                <div class="flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-blue-300"></span><p>Kreatív Blokk (Délután)</p></div>
-                                <div class="flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-green-300"></span><p>Regeneráció (Este)</p></div>
-                                <div class="mt-4 text-center text-xs italic text-gray-500">
-                                    <p>A foglaláskor megkapod a saját vázlatodat.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VÉLEMÉNY KÁRTYÁK SZEKCIÓ (Horizontálisan a H1/Form alatt) -->
-            <div class="mt-8 w-full">
-                 <p class="text-lg text-gray-700 font-semibold mb-6 text-center font-[var(--font-heading)]">Akik már használják:</p>
-
-                <!-- Vélemény Kártyák Horizontálisan Flex-box-szal -->
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 max-w-4xl mx-auto">
-                    
-                    <!-- VÉLEMÉNY 1 -->
-                    <div class="sm:w-1/3 w-full p-2 border border-gray-200 rounded-lg bg-white shadow-md">
-                        <img src="https://i.imgur.com/3wkMY5Z.png" 
-                                alt="Google vélemény 1: 'Peti'" 
-                                class="w-full h-auto rounded-md"
-                                onerror="this.onerror=null; this.src='https://placehold.co/400x100/EEEEEE/333333?text=Review+1'">
-                    </div>
-                    
-                    <!-- VÉLEMÉNY 2 -->
-                    <div class="sm:w-1/3 w-full p-2 border border-gray-200 rounded-lg bg-white shadow-md">
-                        <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+2" 
-                                alt="Google vélemény 2: 'Anna'" 
-                                class="w-full h-auto rounded-md">
-                    </div>
-                    
-                    <!-- VÉLEMÉNY 3 -->
-                    <div class="sm:w-1/3 w-full p-2 border border-gray-200 rounded-lg bg-white shadow-md">
-                        <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+3" 
-                                alt="Google vélemény 3: 'Gábor'" 
-                                class="w-full h-auto rounded-md">
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- 2. Probléma Szekció - Sötét Háttér Kontrasztként -->
-    <section class="dark-section py-20 sm:py-32 px-4 md:px-8">
-        <div class="max-w-4xl mx-auto">
-            <!-- H2 Fejléc -->
-            <h2 class="text-3xl sm:text-5xl mb-12 text-center font-[var(--font-heading)]">A Siker Valódi Ára</h2>
-            
-            <!-- Bevezető bekezdés -->
-            <p class="text-xl mb-16 text-center italic opacity-80 font-[var(--font-body)]">
-                Elérted a szakmai céljaidat, de legbelül tudod, hogy ennek ára volt. Egy csendes adó az energiádra, a fókuszodra és a mentális élességedre.
-            </p>
-
-            <div class="space-y-12">
-                <!-- Probléma Pont 1 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-[var(--font-heading)] border-l-4 border-[var(--color-accent)] pl-4">A Siker Adója</h3>
-                    <p class="text-lg opacity-90 font-[var(--font-body)]">
-                        Délutánra a mentális élességed tompulni kezd. De ez nem a fáradtságról szól. Hanem az irányítás elvesztéséről. A félelem, hogy a legfőbb eszközöd – az elméd – válik a legkiszámíthatatlanabb tényezővé.
-                    </p>
-                </article>
-
-                <!-- Probléma Pont 2 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-[var(--font-heading)] border-l-4 border-[var(--color-accent)] pl-4">Amikor a Megoldások Csődöt Mondanak</h3>
-                    <p class="text-lg opacity-90 font-[var(--font-body)]">
-                        Kipróbáltad a drasztikus programokat és a divatos "bio-hack"-eket. A hiba nem benned volt. A hiba a módszerekben rejlett, amik csak egy újabb teendőt adtak a már így is túlterhelt napodhoz.
-                    </p>
-                </article>
-
-                <!-- Probléma Pont 3 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-[var(--font-heading)] border-l-4 border-[var(--color-accent)] pl-4">A Siker Paradoxona</h3>
-                    <p class="text-lg opacity-90 font-[var(--font-body)]">
-                        A legfájdalmasabb felismerés, hogy a helyzetedet nem a gyengeségeid okozzák, hanem az akaraterőd. Az a nyers erő, ami idáig elhozott, mára a növekedésed legfőbb akadályává vált.
-                    </p>
-                </article>
-            </div>
-            
-            <!-- Cliffhanger -->
-            <p class="text-xl mt-16 text-center font-bold text-[var(--color-accent)] font-[var(--font-heading)]">
-                A régi rendszered nem optimalizálásra szorul. Hanem egy alapvető frissítésre.
-            </p>
-        </div>
-    </section>
-
-    <!-- 3. Megoldás Szekció - Vissza a Világos Háttérhez, Összehasonlítás -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-[var(--color-bg-light)]">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-6 text-center font-[var(--font-heading)]">A Válasz: Egy Okosabb Rendszer</h2>
-            <p class="text-xl mb-16 text-center max-w-3xl mx-auto opacity-80 font-[var(--font-body)]">
-                A Habityield filozófia egy alapvető "upgrade", amely elmozdul az akaraterőről egy intelligens, automatizált rendszer felé, amelynek célja a kognitív terhelés csökkentése.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-10 md:gap-16">
-                <!-- Bal Oszlop: A Régi Út (Szürke/Fakó) -->
-                <div class="p-8 border-4 border-dashed border-gray-400 rounded-xl bg-gray-50/50">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-600 font-[var(--font-heading)]">A Régi Út</h3>
-                    <ul class="space-y-4 text-lg list-none p-0">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">Teljesen az **Akaraterőre** támaszkodik.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">**Komplexitást** ad a már így is túlterhelt naphoz.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">Csak **rövid távú** "tűzoltás".</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Jobb Oszlop: A Habityield Út (Márka Gradient) -->
-                <div class="p-8 border-4 border-[var(--color-accent)] rounded-xl bg-white shadow-xl">
-                    <!-- A gradient-text osztály alkalmazása a címre -->
-                    <h3 class="text-2xl font-bold mb-6 gradient-text font-[var(--font-heading)]">A Habityield Út</h3>
-                    <ul class="space-y-4 text-lg list-none p-0">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">Intelligens **Rendszert Épít**.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">Jelentősen **csökkenti a Kognitív Terhelést**.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-[var(--font-body)]">**Hosszú távú, fenntartható** teljesítményt garantál.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Folyamat Szekció ("Hogyan Működik") - Számozott Lista -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-gray-50/50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-5xl mb-12 font-[var(--font-heading)]">Egy Tiszta, Világos Út</h2>
-            
-            <div class="grid md:grid-cols-3 gap-10 text-left">
-                <!-- 1. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
-                    <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">01</span>
-                    <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Stratégiai Beszélgetés</h3>
-                    <p class="text-base text-gray-700 font-[var(--font-body)]">
-                        Egy mélyreható diagnosztikai hívás, ahol feltárjuk a jelenlegi blokkokat és azokat a rejtett "adókat", amiket a sikered fizetsz.
-                    </p>
-                </div>
-                
-                <!-- 2. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
-                    <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">02</span>
-                    <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Személyes Rendszer Felépítése</h3>
-                    <p class="text-base text-gray-700 font-[var(--font-body)]">
-                        Az elvek alapján felépítjük a te "Habityield" rendszeredet, ami minimalista, könnyen fenntartható és a te egyedi igényeidre van szabva.
-                    </p>
-                </div>
-
-                <!-- 3. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
-                    <span class="text-4xl font-bold text-[var(--color-accent)] font-[var(--font-heading)] mb-4 block">03</span>
-                    <h3 class="text-xl font-semibold mb-3 font-[var(--font-heading)]">Folyamatos Támogatás</h3>
-                    <p class="text-base text-gray-700 font-[var(--font-body)]">
-                        A kezdeti lendület fenntartása érdekében rendszeres, célzott támogatást kapsz, hogy a rendszer beépüljön és stabilizálódjon.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Alapító Hitelességi Szekció - Kép és Szöveg Kontraszt -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-[var(--color-bg-light)]">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <!-- Bal Oszlop: Kép Helykitöltő -->
-            <div class="h-96 w-full max-w-full rounded-xl overflow-hidden bg-gray-300 flex items-center justify-center shadow-lg">
-                <!-- Kép Helykitöltő, hangsúlyozva a "stratéga" hangulatot -->
-                <span class="text-xl text-gray-600 font-[var(--font-heading)]">Alapító Fotó Helye (Stratégikus, Empatikus)</span>
-            </div>
-
-            <!-- Jobb Oszlop: Szöveg -->
-            <div>
-                <h2 class="text-3xl sm:text-5xl mb-6 font-[var(--font-heading)]">A Szűrő, Nem Pedig a Hangszóró</h2>
-                <p class="text-xl mb-4 opacity-80 font-[var(--font-body)]">
-                    Mindenhol hatalmas a zaj: új könyvek, divatos trendek, bio-hackek. De az időd a legdrágább.
+    <!-- Fő Tartalom - Hero Szekció -->
+    <main class="flex-grow">
+        <section class="py-20 md:py-32 text-center bg-accent-bg/50">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Professzionális tanácsadás <span class="text-primary-light">azonnali időpontfoglalással.</span>
+                </h2>
+                <p class="text-xl text-gray-700 mb-10">
+                    Kezdje el a projektjét még ma. Foglaljon ingyenes, 15 perces konzultációt szakértőnkkel.
                 </p>
-                <p class="text-xl font-[var(--font-body)]">
-                    Én elvégeztem a szűrést. Az elmúlt évtizedben én voltam az, aki a nagyító alá tette a teljesítményt, a fókuszt, és a regenerációt. A filozófia, hogy "Zoom In / Zoom Out", arról szól, hogy **én adom a szűrőt**, hogy neked már ne kelljen a hangszórókat hallgatnod. Így csak a te életedre szabott, működő elvek maradnak.
-                </p>
+                
+                <!-- CTA gomb a Calendly popup indításához -->
+                <!-- Az onclick esemény indítja a Calendly widgetet. A return false; megakadályozza az oldal újratöltését. -->
+                <a href="#" 
+                   onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" 
+                   class="cta-button inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl text-white bg-primary-dark hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-primary-dark/50"
+                   aria-label="Időpontfoglalás megnyitása Calendly felugró ablakban">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Z" />
+                    </svg>
+                    Kezdjük el - Foglaljon időpontot
+                </a>
+                
+                <!-- Kisebb gomb a Calendly popup indításához (alternatív) -->
+                <a href="#" 
+                   onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" 
+                   class="inline-block mt-4 md:ml-6 text-gray-700 hover:text-primary-light font-medium rounded-xl py-2 px-4 transition-colors"
+                   aria-label="Rövid időpontfoglalás">
+                    Vagy csak 15 perc gyors konzultáció?
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 6. Ajánlat és Záró CTA Szekció - Sötét Háttér az Üzenet Kiemeléséhez -->
-    <section id="cta-final" class="dark-section py-20 sm:py-28 px-4 md:px-8 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-6 font-[var(--font-heading)]">Az Első Lépés a Fenntartható Csúcsteljesítmény Felé</h2>
-            <p class="text-xl mb-10 opacity-90 font-[var(--font-body)]">
-                Foglalj le egy ingyenes, 45 perces, kötelezettség nélküli "Stratégiai Hívást." Itt nincs semmiféle sales nyomás, csak tiszta, akcióra kész stratégia.
-            </p>
+        <!-- További Információk Szekció (Placeholder) -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Tervezés</h3>
+                    <p class="text-gray-600">A projekt alapjainak lefektetése, igényfelmérés és technológiai stack kiválasztása a céljainak megfelelően.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Fejlesztés</h3>
+                    <p class="text-gray-600">Hatékony, tiszta és tesztelt kód írása. Folyamatos visszajelzés a fejlesztési fázis alatt.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-3 text-primary-dark">Üzemeltetés</h3>
+                    <p class="text-gray-600">A kész termék élesítése, monitorozása és karbantartása a stabil működés érdekében.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
 
-            <!-- Értékek Listája -->
-            <ul class="text-lg mb-12 space-y-3 max-w-sm mx-auto text-left opacity-95">
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Tiszta kép a jelenlegi blokkokról.
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Személyre szabott táplálkozási és mozgásterv.
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Egy fenntartható rendszer vázlata.
-                </li>
-            </ul>
-
-            <!-- CTA Gomb 2: CALENDLY POPUP-ot triggerel -->
+    <!-- Lábléc -->
+    <footer class="mt-12 bg-primary-dark text-white p-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400 mb-4">&copy; 2025 Cég neve. Minden jog fenntartva.</p>
+            <!-- CTA ismét a láblécben -->
             <a href="#" 
-               onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=dbdbdb&text_color=2c2c2c&primary_color=d8c0d1'});return false;"
-               class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
-                <!-- Inline SVG Icon (Calendar/Booking) -->
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>Kérem a Személyes Stratégiámat!</span>
+               onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" 
+               class="cta-button inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg text-primary-dark bg-white hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-white/50"
+               aria-label="Időpontfoglalás a láblécből">
+                Foglaljon időpontot most!
             </a>
         </div>
-    </section>
-
-    <!-- 7. GY.I.K. Szekció -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-[var(--color-bg-light)]">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-12 text-center font-[var(--font-heading)]">Gyakran Ismételt Kérdések</h2>
-            
-            <div class="space-y-6">
-                <!-- Kérdés 1 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
-                        "Nincs erre időm."
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
-                        Pontosan ezért van szükséged rá. A rendszer nem időt vesz el, hanem visszaadja azt, amit a felesleges döntéshozatalra, stresszre és káoszra pazarolsz. A célunk, hogy kevesebb dologgal többet érj el, így felszabadítva a mentális kapacitásodat.
-                    </p>
-                </details>
-
-                <!-- Kérdés 2 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
-                        "Mi van, ha nem működik?"
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
-                        Ez nem egy dobozos program. A Habityield arról szól, hogy megtaláljuk, ami a TE életedben hosszú távon működik. A folyamatos támogatás és finomhangolás biztosítja, hogy a rendszer ellenálljon az élet változásainak.
-                    </p>
-                </details>
-
-                <!-- Kérdés 3 -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
-                        "Miben más ez, mint egy online edzésterv?"
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
-                        Ez a szolgáltatás a gondolkodásmódról, a fókuszról, a döntéshozatalról és a regenerációról szól, nem pedig a súlyok emeléséről. Mi az alapvető rendszert építjük fel, ami lehetővé teszi, hogy *minden más* (beleértve az edzést) a helyére kerüljön. Ez a stratégiai szintű optimalizáció.
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Footer -->
-    <footer class="py-10 px-4 md:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto text-center text-sm text-gray-600">
-            <p>&copy; 2024 Habityield. Minden jog fenntartva.</p>
-            <p class="mt-2 text-xs">Jogi nyilatkozat | Adatkezelési tájékoztató</p>
-        </div>
     </footer>
+
 </body>
 </html>
