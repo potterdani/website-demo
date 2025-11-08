@@ -123,14 +123,14 @@
                 </div>
 
                 <!-- JOBB OLDAL (JotForm Beágyazás) -->
-                <!-- Visszaállítottam a fehér hátterű kártya stílusát, és hozzáadtam az ID-t a tartalomhoz -->
+                <!-- Eltávolítottam a bg-white, shadow-2xl, és border osztályokat a teljes transzparencia érdekében -->
                 <div class="md:col-span-6 w-full mt-8 md:mt-0 max-w-full"> 
                     <!-- Form Cím (a Habityield font és szín stílusában) -->
                     <h3 class="text-2xl font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4 text-center">Jelentkezés a Stratégiai Hívásra</h3>
 
                     <!-- JotForm Helye -->
-                    <!-- Visszaállítottam a fehér háttérstílusokat: p-4 bg-white rounded-xl shadow-2xl border border-gray-200 -->
-                    <div id="jotform-embed-wrapper" class="p-4 bg-white rounded-xl shadow-2xl border border-gray-200">
+                    <!-- A konténer most transzparens és árnyékmentes -->
+                    <div id="jotform-embed-wrapper" class="p-4 rounded-xl">
                         <!-- A felhasználó által megadott, frissített űrlap kódja beillesztve -->
                         <script type="text/javascript" src="https://form.jotform.com/jsform/253114271999060"></script>
                     </div>
@@ -237,7 +237,7 @@
                             <span class="font-[var(--font-body)]">**Komplexitást** ad a már így is túlterhelt naphoz.</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="font-[var(--font-body)]">Csak **rövid távú** "tűzoltás".</span>
                         </li>
                     </ul>
@@ -343,7 +343,82 @@
                     Személyre szabott táplálkozási és mozgásterv.
                 </li>
                 <li class="flex items-start">
+                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Egy fenntartható rendszer vázlata.
+                </li>
+            </ul>
+
+            <!-- CTA Gomb 2 -->
+            <a href="https://habityield.hu/strategiai-hivas" target="_blank" class="cta-button inline-block py-5 px-12 rounded-xl text-[var(--color-text-dark)] font-extrabold text-xl uppercase tracking-wider shadow-2xl flex items-center justify-center space-x-3 mx-auto">
+                <!-- Inline SVG Icon (Calendar/Booking) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>Kérem a Személyes Stratégiámat!</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. GY.I.K. Szekció -->
+    <section class="py-20 sm:py-32 px-4 md:px-8 bg-[var(--color-bg-light)]">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-5xl mb-12 text-center font-[var(--font-heading)]">Gyakran Ismételt Kérdések</h2>
+            
+            <div class="space-y-6">
+                <!-- Kérdés 1 -->
+                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
+                        "Nincs erre időm."
+                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
+                        Pontosan ezért van szükséged rá. A rendszer nem időt vesz el, hanem visszaadja azt, amit a felesleges döntéshozatalra, stresszre és káoszra pazarolsz. A célunk, hogy kevesebb dologgal többet érj el, így felszabadítva a mentális kapacitásodat.
+                    </p>
+                </details>
+
+                <!-- Kérdés 2 -->
+                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
+                        "Mi van, ha nem működik?"
+                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
+                        Ez nem egy dobozos program. A Habityield arról szól, hogy megtaláljuk, ami a TE életedben hosszú távon működik. A folyamatos támogatás és finomhangolás biztosítja, hogy a rendszer ellenálljon az élet változásainak.
+                    </p>
+                </details>
+
+                <!-- Kérdés 3 -->
+                <details class="border-b border-gray-200 py-4 cursor-pointer group">
+                    <summary class="flex justify-between items-center text-xl font-semibold font-[var(--font-heading)]">
+                        "Miben más ez, mint egy online edzésterv?"
+                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 pb-2 text-lg text-gray-700 font-[var(--font-body)]">
+                        Ez a szolgáltatás a gondolkodásmódról, a fókuszról, a döntéshozatalról és a regenerációról szól, nem pedig a súlyok emeléséről. Mi az alapvető rendszert építjük fel, ami lehetővé teszi, hogy *minden más* (beleértve az edzést) a helyére kerüljön. Ez a stratégiai szintű optimalizáció.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Ajánlat és Záró CTA Szekció - Sötét Háttér az Üzenet Kiemeléséhez -->
+    <section id="cta-final" class="dark-section py-20 sm:py-28 px-4 md:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-5xl mb-6 font-[var(--font-heading)]">Az Első Lépés a Fenntartható Csúcsteljesítmény Felé</h2>
+            <p class="text-xl mb-10 opacity-90 font-[var(--font-body)]">
+                Foglalj le egy ingyenes, 45 perces, kötelezettség nélküli "Stratégiai Hívást." Itt nincs semmiféle sales nyomás, csak tiszta, akcióra kész stratégia.
+            </p>
+
+            <!-- Értékek Listája -->
+            <ul class="text-lg mb-12 space-y-3 max-w-sm mx-auto text-left opacity-95">
+                <li class="flex items-start">
                     <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Tiszta kép a jelenlegi blokkokról.
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Személyre szabott táplálkozási és mozgásterv.
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 mr-3 text-[var(--color-accent)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2003/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Egy fenntartható rendszer vázlata.
                 </li>
             </ul>
@@ -407,5 +482,36 @@
         </div>
     </footer>
 
+    <!-- JS a transzparenciához: megpróbálja eltávolítani a JotForm belső hátterét, ha az iframe betöltődik. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.querySelector('#jotform-embed-wrapper iframe');
+            
+            // Ha az iframe megvan, próbáljuk meg eltávolítani a háttérszínt (ez a CSS korlátozások miatt nem garantált)
+            if (iframe) {
+                iframe.addEventListener('load', () => {
+                    try {
+                        // Ez csak az azonos eredetű (same-origin) iframe-ekre működik, de érdemes megpróbálni.
+                        const innerBody = iframe.contentWindow.document.body;
+                        if (innerBody) {
+                            innerBody.style.backgroundColor = 'transparent';
+                            innerBody.style.backgroundImage = 'none';
+                        }
+                        
+                        // Keresd meg a fő űrlap containerét az iframe-en belül
+                        const formContainer = iframe.contentWindow.document.getElementById('form-container');
+                        if (formContainer) {
+                            formContainer.style.backgroundColor = 'transparent';
+                            formContainer.style.backgroundImage = 'none';
+                            formContainer.style.boxShadow = 'none';
+                        }
+                    } catch (e) {
+                        // Cross-origin hiba (valószínű), de a külső konténer már transzparens.
+                        console.log("JotForm iframe: Nem tudom elérni a belső DOM-ot a transzparencia beállításához (cross-origin policy).");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
