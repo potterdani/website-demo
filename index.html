@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habityield - Build Your System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-bg-dark': '#1A1A1A',
+              'brand-bg-light': '#F5F5F5',
+              'brand-text-dark': '#1A1A1A',
+              'brand-text-light': '#F5F5F5',
+              'brand-accent': '#5D6A5E',
+              'brand-gradient-start': '#C6BBD1',
+              'brand-gradient-mid': '#CBCBD7',
+              'brand-gradient-end': '#D5BDCB',
+            },
+            fontFamily: {
+              heading: ['Montserrat', 'sans-serif'],
+              body: ['Lora', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Moving gradient animation for CTA buttons */
+        @keyframes moving-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cta-button-animated {
+            background: linear-gradient(135deg, #C6BBD1, #CBCBD7, #D5BDCB, #C6BBD1);
+            background-size: 300% 300%;
+            animation: moving-gradient 4s ease infinite;
+        }
+        
+        /* Gradient Text Style */
+        .gradient-text {
+            background-image: linear-gradient(to right, #C6BBD1, #CBCBD7, #D5BDCB);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* FAQ accordion arrow rotation */
+        details[open] summary svg {
+            transform: rotate(180deg);
+        }
+    </style>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react/": "https://esm.sh/react@18.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased bg-brand-bg-light font-body text-brand-text-dark">
+    <div id="root"></div>
+    <script type="text/javascript">
+        window.addEventListener("message", (event) => { 
+            if (event.origin !== "https://app.minup.io") return; 
+            const data = event.data; 
+            if (data.type === "redirect_to_payment") { 
+                window.location.href = data.url; 
+            } 
+        });
+    </script>
+    <script type="text/babel" data-type="module" src="./index.tsx" crossorigin></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
