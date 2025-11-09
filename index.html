@@ -1,85 +1,54 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habityield - A Rendszer a Fenntartható Teljesítményért</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>Habityield - Build Your System</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Montserrat (Fejlécek) és Lora (Szövegtörzs) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Calendly Popup Widget (a gyorsításhoz a head-be töltve) -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-    <!-- ÚJ: Tailwind Konfiguráció -->
-    <!-- Itt regisztráljuk a saját betűtípusainkat és színeinket a Tailwind számára -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-dark': '#1A1A1A',
-                        'brand-light': '#F5F5F5',
-                        'accent': '#5D6A5E',
-                        'gradient-1': '#C6BBD1',
-                        'gradient-2': '#CBCBD7',
-                        'gradient-3': '#D5BDCB',
-                    },
-                    fontFamily: {
-                        'montserrat': ['Montserrat', 'sans-serif'],
-                        'lora': ['Lora', 'serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-bg-dark': '#1A1A1A',
+              'brand-bg-light': '#F5F5F5',
+              'brand-text-dark': '#1A1A1A',
+              'brand-text-light': '#F5F5F5',
+              'brand-accent': '#5D6A5E',
+              'brand-gradient-start': '#C6BBD1',
+              'brand-gradient-mid': '#CBCBD7',
+              'brand-gradient-end': '#D5BDCB',
+            },
+            fontFamily: {
+              heading: ['Montserrat', 'sans-serif'],
+              body: ['Lora', 'serif'],
+            },
+          },
+        },
+      };
     </script>
-    
+
     <style>
-        /* A meglévő egyedi CSS-ed, ami tökéletes. */
-        /* Ezentúl használhatod a 'font-lora' és 'font-montserrat' Tailwind osztályokat */
         body {
-            font-family: 'Lora', serif;
-            color: #1A1A1A; /* brand-dark */
-            background-color: #F5F5F5; /* brand-light */
-            line-height: 1.7; 
-            overflow-x: hidden; 
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            color: #1A1A1A; /* brand-dark */
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        
-        /* Mozgó gradient animáció */
+        /* Moving gradient animation for CTA buttons */
         @keyframes moving-gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* CTA gomb egyedi stílusa az animált gradienttel */
-        .cta-button {
-            /* A te színeid a 'gradient-1', 'gradient-2', 'gradient-3' -ból */
+        .cta-button-animated {
             background: linear-gradient(135deg, #C6BBD1, #CBCBD7, #D5BDCB, #C6BBD1);
-            background-size: 300% 300%; 
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
-            animation: moving-gradient 4s ease infinite; 
-        }
-
-        .cta-button:hover {
-            opacity: 1; 
-            transform: translateY(-2px); 
-            box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.3), 0 6px 8px -2px rgba(0, 0, 0, 0.1); 
+            background-size: 300% 300%;
+            animation: moving-gradient 4s ease infinite;
         }
         
-        /* Gradient Szöveg Stílus */
+        /* Gradient Text Style */
         .gradient-text {
             background-image: linear-gradient(to right, #C6BBD1, #CBCBD7, #D5BDCB);
             -webkit-background-clip: text;
@@ -87,336 +56,35 @@
             color: transparent;
         }
 
-        /* Sötét szekciók beállítása */
-        .dark-section {
-            background-color: #1A1A1A; /* brand-dark */
-            color: #F5F5F5; /* brand-light */
-        }
-        .dark-section h1, .dark-section h2, .dark-section h3 {
-            color: #F5F5F5; /* brand-light */
-        }
-
-        /* GYIK alapértelmezett nyíl eltávolítása */
-        details summary {
-            list-style: none; 
-        }
-        details summary::-webkit-details-marker {
-            display: none;
+        /* FAQ accordion arrow rotation */
+        details[open] summary svg {
+            transform: rotate(180deg);
         }
     </style>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body class="antialiased bg-brand-light text-brand-dark font-lora">
-
-    <!-- Navigáció -->
-    <!-- FRISSÍTVE: Logó helykitöltővel és a 'brand' színekkel -->
-    <header class="w-full py-4 px-4 md:px-8 fixed top-0 z-10 bg-brand-light/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- FRISSÍTVE: A szöveges logó helyett egy kép helykitöltő. Cseréld le a logód URL-jére. -->
-            <img src="https://placehold.co/150x40/5D6A5E/F5F5F5?text=Habityield" alt="Habityield Logo" class="h-8 w-auto">
-            
-            <!-- FRISSÍTVE: Calendly Popup Trigger (Helyes esemény link) -->
-            <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" class="hidden sm:block text-sm font-semibold font-montserrat text-brand-dark hover:text-accent transition duration-200">
-                Stratégiai Hívás
-            </a>
-        </div>
-    </header>
-
-    <!-- 1. Hős Szekció (Hero Section) - Kétoszlopos elrendezés (Text + Reviews) -->
-    <section class="min-h-screen flex items-center justify-center pt-24 pb-16 px-4 md:px-8">
-        <div class="max-w-6xl mx-auto w-full"> 
-            
-            <div class="grid md:grid-cols-12 gap-12 items-center mb-10">
-                
-                <!-- BAL OLDAL (Szöveg, H1/H2) -->
-                <div class="md:col-span-7 text-center md:text-left w-full"> 
-                    <!-- H1: Fő Értékajánlat -->
-                    <h1 class="text-3xl sm:text-4xl lg:text-7xl mb-6 font-montserrat font-bold tracking-tight">
-                        [A te fő címsorod ide. Pl: A "háttérben futó" rendszer a fenntartható csúcsteljesítményhez.]
-                    </h1>
-                    <!-- H2: Az Eredmény/Probléma Kifejtése -->
-                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-lora font-normal text-gray-700">
-                        [Az alcím, ami az érzelmi eredményre fókuszál. Pl: Szabadíts fel mentális energiát arra, ami igazán számít. Hogy ne csak túléld, hanem valóban megéld a mindennapokat.]
-                    </h2>
-                </div>
-
-                <!-- JOBB OLDAL (Vélemény Kártyák - Social Proof) -->
-                <div class="md:col-span-5 w-full mt-8 md:mt-0 max-w-full">
-                    <p class="text-lg text-gray-700 font-semibold font-montserrat mb-3 text-center md:text-right">[Social Proof Cím. Pl: Akik már használják:]</p>
-                    <div class="space-y-4 max-w-sm mx-auto md:max-w-full">
-                        
-                        <!-- VÉLEMÉNY 1 -->
-                        <div class="p-2">
-                            <img src="https://i.imgur.com/3wkMY5Z.png" 
-                                 alt="Google vélemény 1" 
-                                 class="w-full h-auto rounded-lg shadow-md"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x100/EEEEEE/333333?text=Review+1'">
-                        </div>
-                        
-                        <!-- VÉLEMÉNY 2 -->
-                        <div class="p-2">
-                            <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+2" 
-                                 alt="Google vélemény 2" 
-                                 class="w-full h-auto rounded-lg shadow-md">
-                        </div>
-                        
-                        <!-- VÉLEMÉNY 3 -->
-                        <div class="p-2">
-                            <img src="https://placehold.co/400x100/EEEEEE/333333?text=Review+3" 
-                                 alt="Google vélemény 3" 
-                                 class="w-full h-auto rounded-lg shadow-md">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Gomb Konténer (A Hős Szekció alja) -->
-            <div class="text-center mt-16">
-                <p class="mb-6 text-xl text-gray-700 max-w-3xl mx-auto font-lora">
-                    [A CTA-hoz vezető kérdés. Pl: Készen állsz arra, hogy a belső rendszereidet a legmagasabb szintre optimalizáld?]
-                </p>
-                <!-- CTA Gomb 1 - FRISSÍTVE: Calendly Popup Trigger (Helyes esemény link) -->
-                <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" class="cta-button inline-block py-5 px-12 rounded-xl text-brand-dark font-extrabold text-xl uppercase tracking-wider shadow-2xl font-montserrat">
-                    <!-- A gomb szövegét (Kérem a Személyes Stratégiámat!) megtartottam, mert az már tökéletes. -->
-                    <span>Kérem a Személyes Stratégiámat!</span>
-                </a>
-                <p class="mt-4 text-sm text-gray-500">[Az ajánlat tisztázása. Pl: Ingyenes, 45 perces, kötelezettség nélküli hívás.]</p>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- 2. Probléma Szekció - Sötét Háttér Kontrasztként -->
-    <section class="dark-section py-20 sm:py-32 px-4 md:px-8">
-        <div class="max-w-4xl mx-auto">
-            <!-- A szekció fő üzenete: A célközönség fájdalompontja -->
-            <h2 class="text-3xl sm:text-5xl mb-12 text-center font-montserrat">[A Probléma Címsora. Pl: A Siker Valódi Ára]</h2>
-            
-            <p class="text-xl mb-16 text-center italic opacity-80 font-lora">
-                [A fájdalompont érzelmi leírása. A "Brand Brief"-ből: "Elérted a szakmai céljaidat, de legbelül tudod, hogy ennek ára volt..."]
-            </p>
-
-            <div class="space-y-12">
-                <!-- Probléma Pont 1 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-montserrat border-l-4 border-accent pl-4">[1. Fájdalompont: A "Siker Adója". Pl: Kognitív terhelés, délutáni fáradtság]</h3>
-                    <p class="text-lg opacity-90 font-lora">
-                        [Rövid leírás, ami a célközönségedre rezonál. Pl: "Délutánra a mentális élességed tompul... A félelem, hogy az elméd válik a legkiszámíthatatlanabb tényezővé."]
-                    </p>
-                </article>
-
-                <!-- Probléma Pont 2 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-montserrat border-l-4 border-accent pl-4">[2. Fájdalompont: A Kudarcot Vallott Megoldások. Pl: "All-or-nothing" diéták]</h3>
-                    <p class="text-lg opacity-90 font-lora">
-                        [Miért nem működtek a korábbi próbálkozásaik? Pl: "Kipróbáltad a drasztikus programokat... A hiba a módszerekben rejlett, amik csak egy újabb teendőt adtak..."]
-                    </p>
-                </article>
-
-                <!-- Probléma Pont 3 -->
-                <article>
-                    <h3 class="text-2xl font-semibold mb-3 font-montserrat border-l-4 border-accent pl-4">[3. Fájdalompont: A Paradoxon. Pl: Az akaraterő, ami idáig elhozta, most akadály]</h3>
-                    <p class="text-lg opacity-90 font-lora">
-                        [A legfájdalmasabb felismerés. Pl: "A helyzetedet nem a gyengeségeid okozzák, hanem az akaraterőd... mára a növekedésed legfőbb akadályává vált."]
-                    </p>
-                </article>
-            </div>
-            
-            <!-- Átvezetés a megoldáshoz -->
-            <p class="text-xl mt-16 text-center font-bold text-accent font-montserrat">
-                [Az átvezető "cliffhanger". Pl: A régi rendszered nem optimalizálásra szorul. Hanem egy alapvető frissítésre.]
-            </p>
-        </div>
-    </section>
-
-    <!-- 3. Megoldás Szekció - Vissza a Világos Háttérhez, Összehasonlítás -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-brand-light">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-6 text-center font-montserrat">[A Megoldás Címsora. Pl: A Válasz: Egy Okosabb Rendszer]</h2>
-            <p class="text-xl mb-16 text-center max-w-3xl mx-auto opacity-80 font-lora">
-                [Mutasd be a "Habityield Filozófiát". Pl: "A Habityield egy alapvető 'upgrade', amely elmozdul az akaraterőről egy intelligens, automatizált rendszer felé..."]
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-10 md:gap-16">
-                <!-- Bal Oszlop: A Régi Út (A kudarcot vallott módszer) -->
-                <div class="p-8 border-4 border-dashed border-gray-400 rounded-xl bg-gray-50/50">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-600 font-montserrat">A Régi Út</h3>
-                    <ul class="space-y-4 text-lg list-none p-0">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Régi Módszer 1. Pl: Teljesen az <strong>Akaraterőre</strong> támaszkodik.]</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Régi Módszer 2. Pl: <strong>Komplexitást</strong> ad a napodhoz.]</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Régi Módszer 3. Pl: Csak <strong>rövid távú</strong> "tűzoltás".]</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Jobb Oszlop: A Habityield Út (A te megoldásod) -->
-                <div class="p-8 border-4 border-accent rounded-xl bg-white shadow-xl">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text font-montserrat">A Habityield Út</h3>
-                    <ul class="space-y-4 text-lg list-none p-0">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Te Módszered 1. Pl: Intelligens <strong>Rendszert Épít</strong>.]</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Te Módszered 2. Pl: Jelentősen <strong>csökkenti a Kognitív Terhelést</strong>.]</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="font-lora">[Te Módszered 3. Pl: <strong>Hosszú távú, fenntartható</strong> teljesítményt garantál.]</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Folyamat Szekció ("Hogyan Működik") - Számozott Lista -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-gray-50/50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-5xl mb-12 font-montserrat">[A Folyamat Címsora. Pl: Egy Tiszta, Világos Út]</h2>
-            
-            <div class="grid md:grid-cols-3 gap-10 text-left">
-                <!-- 1. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
-                    <span class="text-4xl font-bold text-accent font-montserrat mb-4 block">01</span>
-                    <h3 class="text-xl font-semibold mb-3 font-montserrat">[1. Lépés Címe. Pl: Stratégiai Beszélgetés]</h3>
-                    <p class="text-base text-gray-700 font-lora">
-                        [1. Lépés Leírása. Pl: "Egy mélyreható diagnosztikai hívás, ahol feltárjuk a jelenlegi blokkokat..."]
-                    </p>
-                </div>
-                
-                <!-- 2. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
-                    <span class="text-4xl font-bold text-accent font-montserrat mb-4 block">02</span>
-                    <h3 class="text-xl font-semibold mb-3 font-montserrat">[2. Lépés Címe. Pl: Személyes Rendszer Felépítése]</h3>
-                    <p class="text-base text-gray-700 font-lora">
-                        [2. Lépés Leírása. Pl: "Felépítjük a te 'Habityield' rendszeredet, ami minimalista és a te igényeidre van szabva."]
-                    </p>
-                </div>
-
-                <!-- 3. Lépés -->
-                <div class="p-6 rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 bg-white">
-                    <span class="text-4xl font-bold text-accent font-montserrat mb-4 block">03</span>
-                    <h3 class="text-xl font-semibold mb-3 font-montserrat">[3. Lépés Címe. Pl: Folyamatos Támogatás]</h3>
-                    <p class="text-base text-gray-700 font-lora">
-                        [3. Lépés Leírása. Pl: "Rendszeres, célzott támogatást kapsz, hogy a rendszer beépüljön és stabilizálódjon."]
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Alapító Hitelességi Szekció - Kép és Szöveg Kontraszt -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-brand-light">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <!-- Bal Oszlop: Kép Helykitöltő -->
-            <div class="h-96 w-full max-w-full rounded-xl overflow-hidden bg-gray-300 flex items-center justify-center shadow-lg">
-                <!-- Cseréld le a saját fotód URL-jére -->
-                <img src="https://placehold.co/600x400/5D6A5E/F5F5F5?text=Alap%C3%ADt%C3%B3+Fot%C3%B3" alt="Dani Fazekas - Habityield Alapító" class="w-full h-full object-cover">
-            </div>
-
-            <!-- Jobb Oszlop: Szöveg (A te "Miért"-ed) -->
-            <div>
-                <h2 class="text-3xl sm:text-5xl mb-6 font-montserrat">[A Te Szereped Címsora. Pl: A Szűrő, Nem Pedig a Hangszóró]</h2>
-                <p class="text-xl mb-4 opacity-80 font-lora">
-                    [A probléma, amit megoldasz (információs zaj). Pl: "Mindenhol hatalmas a zaj: új könyvek, divatos trendek, bio-hackek..."]
-                </p>
-                <p class="text-xl font-lora">
-                    [A te egyedi megközelítésed. Pl: "Én elvégeztem a szűrést... 'Zoom In / Zoom Out'... én adom a szűrőt, hogy neked már ne kelljen a hangszórókat hallgatnod."]
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Ajánlat és Záró CTA Szekció - Sötét Háttér az Üzenet Kiemeléséhez -->
-    <section id="cta-final" class="dark-section py-20 sm:py-28 px-4 md:px-8 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-6 font-montserrat">[A Záró CTA Címsora. Pl: Az Első Lépés a Fenntartható Csúcsteljesítmény Felé]</h2>
-            <p class="text-xl mb-10 opacity-90 font-lora">
-                [Ismételd meg az ajánlatot világosan. Pl: "Foglalj le egy ingyenes, 45 perces, kötelezettség nélküli 'Stratégiai Hívást.' Nincs sales nyomás, csak tiszta stratégia."]
-            </p>
-
-            <!-- Értékek Listája (Mit kap a hívásból?) -->
-            <!-- Ez EGYENESEN a te promptodból származik! -->
-            <ul class="text-lg mb-12 space-y-3 max-w-sm mx-auto text-left opacity-95 font-lora">
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    [Érték 1. Pl: Tiszta kép a jelenlegi blokkokról.]
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    [Érték 2. Pl: Személyre szabott táplálkozási és mozgásterv.]
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 mr-3 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    [Érték 3. Pl: Egy fenntartható rendszer vázlata.]
-                </li>
-            </ul>
-
-            <!-- CTA Gomb 2 - FRISSÍTVE: Calendly Popup Trigger (Helyes esemény link) -->
-            <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dani-fazekas8/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=e0e0e0&primary_color=a3839f'});return false;" class="cta-button inline-block py-5 px-12 rounded-xl text-brand-dark font-extrabold text-xl uppercase tracking-wider shadow-2xl font-montserrat">
-                <span>Kérem a Személyes Stratégiámat!</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- 7. GY.I.K. Szekció -->
-    <section class="py-20 sm:py-32 px-4 md:px-8 bg-brand-light">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-5xl mb-12 text-center font-montserrat">Gyakran Ismételt Kérdések</h2>
-            
-            <div class="space-y-6">
-                <!-- Kérdés 1 (Kifogáskezelés) -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-montserrat">
-                        [1. Kifogás. Pl: "Nincs erre időm."]
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-lora">
-                        [1. Válasz. Pl: "Pontosan ezért van szükséged rá. A rendszer nem időt vesz el, hanem visszaadja azt, amit a felesleges döntéshozatalra pazarolsz..."]
-                    </p>
-                </details>
-
-                <!-- Kérdés 2 (Kifogáskezelés) -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-montserrat">
-                        [2. Kifogás. Pl: "Mi van, ha nem működik?"]
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-lora">
-                        [2. Válasz. Pl: "Ez nem egy dobozos program. A Habityield arról szól, hogy megtaláljuk, ami a TE életedben hosszú távon működik..."]
-                    </p>
-                </details>
-
-                <!-- Kérdés 3 (Megkülönböztetés) -->
-                <details class="border-b border-gray-200 py-4 cursor-pointer group">
-                    <summary class="flex justify-between items-center text-xl font-semibold font-montserrat">
-                        [3. Kifogás. Pl: "Miben más ez, mint egy online edzésterv?"]
-                        <svg class="w-5 h-5 transition duration-300 transform group-open:rotate-180 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 pb-2 text-lg text-gray-700 font-lora">
-                        [3. Válasz. Pl: "Mi az alapvető rendszert építjük fel... Ez a stratégiai szintű optimalizáció, ami lehetővé teszi, hogy *minden más* a helyére kerüljön."]
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 px-4 md:px-8 bg-gray-100">
-        <div class="max-w-7xl mx-auto text-center text-sm text-gray-600 font-lora">
-            <p>&copy; 2024 Habityield. Minden jog fenntartva.</p>
-            <p class="mt-2 text-xs">[Linkek. Pl: Jogi nyilatkozat | Adatkezelési tájékoztató]</p>
-        </div>
-    </footer>
-
+<body class="antialiased bg-brand-bg-light font-body text-brand-text-dark">
+    <div id="root"></div>
+    <script type="text/javascript">
+        window.addEventListener("message", (event) => { 
+            if (event.origin !== "https://app.minup.io") return; 
+            const data = event.data; 
+            if (data.type === "redirect_to_payment") { 
+                window.location.href = data.url; 
+            } 
+        });
+    </script>
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
